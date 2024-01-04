@@ -179,28 +179,27 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  BottomNavigationBar bottomNavBar() {
-    return BottomNavigationBar(
+  NavigationBar bottomNavBar() {
+    return NavigationBar(
       backgroundColor: mainColor,
-      currentIndex: 0,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      type: BottomNavigationBarType.fixed,
-      items: [
-        BottomNavigationBarItem(
+      indicatorColor: mainColor,
+      selectedIndex: 0,
+      labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+      destinations: [
+        NavigationDestination(
             icon: Icon(
               Tk.homeOut,
               color: white.withOpacity(0.8),
             ),
             label: 'Home'),
-        BottomNavigationBarItem(
+        NavigationDestination(
             icon: Icon(
               Tk.msg,
               color: white,
               size: 28,
             ),
             label: 'Messages'),
-        BottomNavigationBarItem(
+        NavigationDestination(
             icon: Icon(
               Tk.user,
               size: 28,

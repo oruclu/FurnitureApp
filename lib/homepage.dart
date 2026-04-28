@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 32),
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
@@ -107,49 +107,53 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   final item = items[index];
                   return GestureDetector(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Hero(
-                          tag: item,
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Hero(
+                            tag: item,
 
-                          /// IOS-da düzgün çalışmağı üçün(Səhifədən sürüşdürərək geri qayıdanda)
-                          transitionOnUserGestures: true,
-                          child: Image.asset(
-                            item.assetNAme,
-                            width: width / 3,
-                            height: width / 3,
+                            /// IOS-da düzgün çalışmağı üçün(Səhifədən sürüşdürərək geri qayıdanda)
+                            transitionOnUserGestures: true,
+                            child: Image.asset(
+                              item.assetNAme,
+                              width: width / 3,
+                              height: width / 3,
+                            ),
                           ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                item.title,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: black,
-                                  fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  item.title,
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                item.subtitle,
-                                style: TextStyle(color: black.withOpacity(0.6)),
-                              ),
-                              Text(
-                                item.price,
-                                style: TextStyle(
-                                  color: black,
-                                  fontWeight: FontWeight.bold,
+                                Text(
+                                  item.subtitle,
+                                  style:
+                                      TextStyle(color: black.withOpacity(0.6)),
                                 ),
-                              )
-                            ],
+                                Text(
+                                  item.price,
+                                  style: TextStyle(
+                                    color: black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 30)
-                      ],
+                          SizedBox(height: 30)
+                        ],
+                      ),
                     ),
                     onTap: () {
                       Navigator.push(
@@ -167,11 +171,11 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: ClipPath(
         clipper: BotNavClip(),
         child: Container(
-          height: 93,
+          height: 120,
           color: mainColor,
           child: Container(
             height: 60,
-            margin: EdgeInsets.only(top: 30),
+            margin: EdgeInsets.only(top: 50),
             child: bottomNavBar(),
           ),
         ),
